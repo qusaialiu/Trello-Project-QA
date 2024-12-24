@@ -5,19 +5,19 @@ class createBoardActions {
     }
 
     clickOnCreateBoardOption() {
-        cy.findByTestId("header-create-board-button").click();
-        return this;
+        cy.findByTestId("header-create-board-button").click()
+        return this
     }
 
     typeInBoardTitleInputField(boardName) {
         cy.findByTestId("create-board-title-input").type(boardName)
-        return this;
+        return this
     }
 
     clickOnCreateButton() {
-        cy.findByTestId("create-board-submit-button").click();
+        cy.findByTestId("create-board-submit-button").click()
         cy.wait(3000)
-        return this;
+        return this
     }
 }
 export default createBoardActions

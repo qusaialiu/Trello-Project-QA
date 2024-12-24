@@ -30,10 +30,10 @@ Cypress.Commands.add('loginTrello', () => {
     cy.get("#login-submit").click()
     cy.get("#password").type("qusai@275211")
     cy.get("#login-submit").click()
-    cy.wait(3000)
+    cy.wait(4000)
+
 
 })
-
 Cypress.Commands.add('findByTestId', (testId) => {
     cy.get(`[data-testid=${testId}]`)
 })
