@@ -11,6 +11,7 @@ let boardUrl, boardId;
 const dataUtil = new dataUtils()
 const createCardAction = new createCardActions()
 const createCardAssertion = new createCardAssertions()
+
 before(() => {
     dataUtil.createBoard(boardName).then((response) => {
         cy.log(response.body.url)
@@ -35,8 +36,8 @@ When("Click on Add Card button", () => {
 Then("The card will be created successfully", () => {
     createCardAssertion.checkListIsContainCard(cardName)
 })
-after(() => {
-    cy.wait(4000)
-    dataUtil.deleteBoard(boardId)
+//after(() => {
+//cy.wait(4000)
+//dataUtil.deleteBoard(boardId)
 
-})
+//})
