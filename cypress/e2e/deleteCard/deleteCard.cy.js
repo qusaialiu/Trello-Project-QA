@@ -1,25 +1,29 @@
 import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
 import dataUtils from "../../support/dataUtils.cy";
 import deleteCardActions from "../../pageObjects/deleteCard/actions.cy";
+import deleteCardAssertions from "../../pageObjects/deleteCard/assertions.cy";
+import sharedActions from "../../pageObjects/shared/actions.cy";
 
+
+const deleteCardAction = new deleteCardActions()
+const deleteCardAssertion = new deleteCardAssertions()
+const sharedAction = new sharedActions()
 const dataUtil = new dataUtils()
 const boardName = "AutomationTesting"
 const listName = "Cypress Cucumber"
 const cardName = "Why learn cypress"
-const deleteCardAction = new deleteCardActions()
 let boardUrl, boardId, listId;
 
 before(() => {
 
     dataUtil.createBoard(boardName).then((response) => {
-        cy.log(response.body.url)
         boardUrl = response.body.url
         boardId = response.body.id
 
         dataUtil.createListBoard(boardId, listName).then((listResponse) => {
 
             listId = listResponse.body.id
-            cy.log(listResponse.body.id)
+
 
             dataUtil.createOnCard(listId, cardName).then((cardResponse) => {
 
@@ -33,11 +37,16 @@ before(() => {
 
     cy.loginTrello()
 
+
+
     Given("The user navigate to the board", () => {
+
         deleteCardAction.openBoard(boardUrl)
     })
 
     When("Click on edit card icon", () => {
+        cy.wait(3000)
+        sharedAction.takeScreenShots()
         deleteCardAction.clickOnEditCardIcon()
 
     })
@@ -60,6 +69,11 @@ before(() => {
     })
 
     Then("The card will be deleted successfully", () => {
-
+        deleteCardAssertion.checkOnCardNotBeVisible()
     })
+})
+after(() => {
+    cy.wait(4000)
+    dataUtil.deleteBoard(boardId)
+
 })

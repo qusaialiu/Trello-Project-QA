@@ -36,8 +36,8 @@ When("Click on Add Card button", () => {
 Then("The card will be created successfully", () => {
     createCardAssertion.checkListIsContainCard(cardName)
 })
-//after(() => {
-//cy.wait(4000)
-//dataUtil.deleteBoard(boardId)
+after(() => {
+    cy.wait(4000)
+    dataUtil.deleteBoard(boardId)
 
-//})
+})
