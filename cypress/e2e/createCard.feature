@@ -1,3 +1,4 @@
+@SmokeTesting
 Feature: Create Card on Trello Website
     Scenario: Validate that the user can create a new card
         Given The user navigate to the board

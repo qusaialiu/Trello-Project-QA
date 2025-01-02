@@ -1,3 +1,4 @@
+@SmokeTesting
 Feature: Can Delete Existing Card
 
     Scenario: Validate that the user can delete card

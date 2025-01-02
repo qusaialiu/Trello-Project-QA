@@ -1,3 +1,4 @@
+@SmokeTesting
 Feature: Create a Board on trello website
 
 
@@ -5,6 +6,6 @@ Feature: Create a Board on trello website
         Given The user login to trello website
         When Clicks on Create button on navbar
         And Choose create board option
-        And Types board name in board title field 
-        And Clicks on Create button 
-        Then The board will created successfuly 
+        And Types board name in board title field
+        And Clicks on Create button
+        Then The board will created successfuly
