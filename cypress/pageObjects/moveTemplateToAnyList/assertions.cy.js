@@ -5,7 +5,7 @@ class moveTemplateToAnyListAssertions {
     }
     checkOnMoveTempalteCard(cardName) {
         cy.findByTestId("list-cards").should("contain", cardName)
-
+        return this;
     }
 }
 export default moveTemplateToAnyListAssertions;

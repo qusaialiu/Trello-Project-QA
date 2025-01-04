@@ -10,6 +10,7 @@ class hideTemplateFromListActions {
 
     clickOnHideFormListButton() {
         cy.findByTestId("quick-card-editor-archive").click()
+        return this;
     }
 }
 export default hideTemplateFromListActions;
