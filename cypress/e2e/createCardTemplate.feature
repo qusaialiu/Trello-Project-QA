@@ -1,3 +1,4 @@
+@SmokeTesting
 Feature: Create New Card Template
 
     Scenario: Validate User Can Create New Card Template

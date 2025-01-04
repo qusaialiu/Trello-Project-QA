@@ -15,8 +15,14 @@ class dataUtils {
         return cy.request("POST", `https://api.trello.com/1/cards?idList=${listId}&key=${APIKey}&token=${APIToken}`, { name: cardName }
         )
     }
+
     createBoardTemplate = (boardName, template) => {
         return cy.request("POST", `https://api.trello.com/1/boards/?name=${boardName}&key=${APIKey}&token=${APIToken}`, { isTemplate: template })
+    }
+
+    createOnTemplateCard = (listId, cardName, template) => {
+        return cy.request("POST", `https://api.trello.com/1/cards?idList=${listId}&key=${APIKey}&token=${APIToken}`, { name: cardName, isTemplate: template }
+        )
     }
 }
 export default dataUtils

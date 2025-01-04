@@ -21,6 +21,7 @@ class deleteCardActions {
     }
     clickOnConfirmDeleteButton() {
         cy.findByTestId("popover-confirm-button").click()
+        return this;
     }
 
 
